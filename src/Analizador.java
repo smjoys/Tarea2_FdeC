@@ -30,8 +30,10 @@ public class Analizador {
         }
     }
     public static void lectorArchivoSubRip(File file){
+
         FileReader fileReader;
-        //lo meti todo en este try/catch por que si
+
+        //lo meti todo en este try/catch porque de esa forma usaba solo uno
         try {
             fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
@@ -43,20 +45,25 @@ public class Analizador {
             }
             reader.close();
             String[] subtitles = subtitleContent.toString().split("\n\n");
+
             for (String subtitle:subtitles) {
+
                 //cada linea del archivo
                 String[] lines = subtitle.split("\n");
+
                 //numero de subtitulos
                 int numberSubtitle = Integer.parseInt(lines[0]);
                 String[] intervalosTime = lines[1].split(" --> ");
                 LocalTime start = LocalTime.parse(intervalosTime[0]);
                 LocalTime finish = LocalTime.parse(intervalosTime[1]);
+
                 //los subtitulos en si PD aun no se como separar los otros factores
                 StringBuilder subtitleContentBuild = new StringBuilder();
                 for (int i = 2; i < lines.length; i++) {
                     subtitleContentBuild.append(lines[i]).append("\n");
                 }
                 String contenidoNeto = subtitleContentBuild.toString().trim();
+
                 //por fin el subtitulo creado
                 Subtitulo subtituloNodo = new Subtitulo(numberSubtitle,start,finish,contenidoNeto);
             }
