@@ -54,8 +54,8 @@ public class Analizador {
                 //numero de subtitulos
                 int numberSubtitle = Integer.parseInt(lines[0]);
                 String[] intervalosTime = lines[1].split(" --> ");
-                LocalTime start = LocalTime.parse(intervalosTime[0]);
-                LocalTime finish = LocalTime.parse(intervalosTime[1]);
+                String start = intervalosTime[0];
+                String finish = intervalosTime[1];
 
                 //los subtitulos en si PD aun no se como separar los otros factores
                 StringBuilder subtitleContentBuild = new StringBuilder();
