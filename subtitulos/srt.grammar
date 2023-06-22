@@ -1,9 +1,9 @@
-Package srt;
+Package srt.sableccCarpeta;
 
 Helpers
-  a = 'a' | 'A' ; 
-  b = 'b' | 'B' ;  
-  c = 'c' | 'C' ; 
+  a = 'a' | 'A' ;
+  b = 'b' | 'B' ;
+  c = 'c' | 'C' ;
   d = 'd' | 'D' ;
   e = 'e' | 'E' ;
   f = 'f' | 'F' ;
@@ -25,18 +25,18 @@ Helpers
   v = 'v' | 'V' ;
   w = 'w' | 'W' ;
   x = 'x' | 'X' ;
-  y = 'y' | 'Y' ;   
+  y = 'y' | 'Y' ;
   z = 'z' | 'Z' ;
   num=['0' .. '9']+;
   letter=['a'..'z']|['A'..'Z'];
   digit = ['0'..'9'] ;
   text = [[0..0xffff]-newline]*;
-
+  newline = (13 | 10) ;
 
 Tokens
 	num= num;
 	blank = (' ')+;
-        newline= (13 | 10)+;
+        newline= (13 | 10) ;
         arrow = '-''-''>';
         comma= ',';
         twopoint= ':';
@@ -44,22 +44,20 @@ Tokens
         text= text;
 
 
+
 Productions
 	filesub = itemlist;
 
-	itemlist = {item} item |
-		   {itemlist} itemlist newline item;
+	itemlist = {item} item | {itemlist} itemlist newline item;
 
         item = num blank newline time blank newline sub;
-               
+
         time = hours twopoint minutes twopoint seconds comma millisecons arrow hours twopoint minutes twopoint seconds comma millisecons;
-        
+
         subs = textlist;
 
-        textlist= text |
-                  textlist newline text;
+        itemlist = {item} item | {itemlist} itemlist newline item;
 
-        
         hours= digit digit;
 
         minutes= digit digit;
