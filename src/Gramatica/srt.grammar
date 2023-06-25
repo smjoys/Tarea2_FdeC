@@ -26,6 +26,9 @@ Tokens
     flecha = '-->';
     etiqueta = ('<i>' | '<b>' | '<u>' | '</i>' | '</b>' | '</u>');
 
+    Ignored Tokens
+      blank;
+
 
 Productions
     listasubtitulo = {subtitulo} subtitulo | {listsubtitulo} subtitulo listasubtitulo;
