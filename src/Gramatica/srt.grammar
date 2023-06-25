@@ -1,0 +1,41 @@
+Package srt.sableccCarpeta;
+
+Helpers
+  digit = ['0'..'9'];
+  letter = [['a'..'z']+['A'..'Z']];
+  special = [[!]..[.]+[:]..[;]];
+  tilde = ['á' | 'é' | 'í' | 'ó' | 'ú' ];}
+  letter2 = (letter | tilde | 'Ñ' | 'ñ' | '¿' | '¡' | '_' | '-' | '"');
+    hex = [['a'..'f']+['A'..'F']];
+    coma = ',';
+    dospuntos = ':';
+    flecha = '-->';
+
+Tokens
+    digito = (digit)+;
+    blank = (' ' | 13 | 10)+;
+    color = (digit | hex)+;
+    abrecolor = '<font color="#';
+
+
+
+Productions
+    filesub = itemlist;
+
+    itemlist = {item} item | {itemlist} itemlist newline item;
+
+        item = num blank newline time blank newline sub;
+
+        time = hours twopoint minutes twopoint seconds comma millisecons arrow hours twopoint minutes twopoint seconds comma millisecons;
+
+        subs = textlist;
+
+        itemlist = {item} item | {itemlist} itemlist newline item;
+
+        hours= digit digit;
+
+        minutes= digit digit;
+
+        seconds= digit digit;
+
+        millisecons= digit digit;
