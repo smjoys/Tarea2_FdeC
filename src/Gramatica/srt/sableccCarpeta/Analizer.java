@@ -1,9 +1,10 @@
-Package sableccCarperta
+package Gramatica.srt.sableccCarpeta;
 import sableccCarpeta.parser;
 import sableccCarpeta.lexer;
 import sableccCarpeta.node;
 import sableccCarpeta.analaysis;
 import java.io.*;
+import java.util.Scanner;
 
 public class Analizer {
 
@@ -18,4 +19,5 @@ public class Analizer {
         Analizador.buscarArchivoSubRip(new File(ruta),arch);
 
     }
+
 }
