@@ -2,11 +2,9 @@ Package srt.sableccCarpeta;
 
 Helpers
   digit = ['0'..'9'];
-  letter = [['a'..'z']+['A'..'Z']];
-  special = [[!]..[.]+[:]..[;]];
-  tilde = ['á' | 'é' | 'í' | 'ó' | 'ú' ];}
-  letter2 = (letter | tilde | 'Ñ' | 'ñ' | '¿' | '¡' | '_' | '-' | '"');
-    hex = [['a'..'f']+['A'..'F']];
+  letter = (['a'..'z'] | ['A'..'Z']);
+  special = (['!'..'.'] | [':'..';']);
+  letter2 = (letter | 'Ñ' | 'ñ' | '¿' | '¡' | '_' | '-' | '"');
     coma = ',';
     dospuntos = ':';
     flecha = '-->';
@@ -14,13 +12,7 @@ Helpers
 Tokens
     digito = (digit)+;
     blank = (' ' | 13 | 10)+;
-    color = (digit | hex)+;
-    abrecolor = '<font color="#';
-    cierracolor = '</font>';
-    fincolor = '">';
-    abrecorchete = '[';
-    cierrecorchete = ']';
-    texto = letter2 (digit | letter2 | special | ' ' | '?' | '¿' )*;
+    texto = letter2 (digit | letter2 | special | ' ' | '?' | '¿' )+;
     coma = ',';
     dosp = ':';
     flecha = '-->';
@@ -41,4 +33,4 @@ Productions
     segundos = digito;
     miliseg = digito;
     textlist = {sub} sub | {textlist} sub textlist;
-    sub = {sub1} [e1]: etiqueta texto [e2]: etiqueta | {sub2} texto | {sub3} abrecolor color fincolor texto cierracolor | {sub4} abrecorchete texto cierracorchete;
+    sub = {sub1} [e1]: etiqueta texto [e2]: etiqueta | {sub2} texto;
