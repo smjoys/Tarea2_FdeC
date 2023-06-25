@@ -16,7 +16,15 @@ Tokens
     blank = (' ' | 13 | 10)+;
     color = (digit | hex)+;
     abrecolor = '<font color="#';
-
+    cierracolor = '</font>';
+    fincolor = '">';
+    abrecorchete = '[';
+    cierrecorchete = ']';
+    texto = letter2 (digit | letter2 | special | ' ' | '?' | '¿' )*;
+    coma = ',';
+    dosp = ':';
+    flecha = '-->';
+    etiqueta = ('<i>' | '<b>' | '<u>' | '</i>' | '</b>' | '</u>');
 
 
 Productions
