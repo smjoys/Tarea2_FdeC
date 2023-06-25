@@ -1,8 +1,11 @@
 package Gramatica.srt.sableccCarpeta;
-import sableccCarpeta.parser;
-import sableccCarpeta.lexer;
-import sableccCarpeta.node;
-import sableccCarpeta.analaysis;
+
+import Gramatica.srt.sableccCarpeta.parser.*;
+import Gramatica.srt.sableccCarpeta.node.*;
+import Gramatica.srt.sableccCarpeta.lexer.*;
+import Gramatica.srt.sableccCarpeta.analysis.*;
+import Gramatica.srt.sableccCarpeta.*;
+
 import java.io.*;
 import java.util.Scanner;
 
