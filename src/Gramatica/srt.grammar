@@ -28,22 +28,14 @@ Tokens
 
 
 Productions
-    filesub = itemlist;
-
-    itemlist = {item} item | {itemlist} itemlist newline item;
-
-        item = num blank newline time blank newline sub;
-
-        time = hours twopoint minutes twopoint seconds comma millisecons arrow hours twopoint minutes twopoint seconds comma millisecons;
-
-        subs = textlist;
-
-        itemlist = {item} item | {itemlist} itemlist newline item;
-
-        hours= digit digit;
-
-        minutes= digit digit;
-
-        seconds= digit digit;
-
-        millisecons= digit digit;
+    listasubtitulo = {subtitulo} subtitulo | {listsubtitulo} subtitulo listasubtitulo;
+    subtitulo = digito tiempo textlist;
+    tiempo = hora1 flecha hora2;
+    hora1 = hora [d1]: dosp minutos [d2]: dosp segundos coma miliseg;
+    hora2 = hora [p1]: dosp minutos [p2]: dosp segundos coma miliseg;
+    hora = digito;
+    minutos = digito;
+    segundos = digito;
+    miliseg = digito;
+    textlist = {sub} sub | {textlist} sub textlist;
+    sub = {sub1} [e1]: etiqueta texto [e2]: etiqueta | {sub2} texto | {sub3} abrecolor color fincolor texto cierracolor | {sub4} abrecorchete texto cierracorchete;
